@@ -1,5 +1,331 @@
-/* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
-
 .page {
-  /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
+  background-image: var(--bg-image);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-color: var(--bg-color);
+  font-family: var(--text-font);
+  font-size: var(--text-font-size);
+  line-height: 23.4px;
+}
+
+.header {
+  position: relative;
+  block-size: 100vh;
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  align-items: center;
+  padding: 10px;
+}
+
+.decorated-zone::before {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  inline-size: 25px;
+  block-size: 25px;
+  content: '';
+  border-inline-end: 1px solid var(--decorative-color);
+  border-block-start: 1px solid var(--decorative-color);
+}
+
+.decorated-zone::after {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  inline-size: 25px;
+  block-size: 25px;
+  content: '';
+  border-inline-start: 1px solid var(--decorative-color);
+  border-block-end: 1px solid var(--decorative-color);
+}
+
+.header__decorative-element {
+  position: absolute;
+  top: 10px;
+  right: 38px;
+  color: var(--decorative-color);
+}
+
+.header__decorative-element::after {
+  position: absolute;
+  top: 8px;
+  left: calc(100% + 8px);
+  inline-size: 9px;
+  block-size: 9px;
+  content: '';
+  background-color: var(--decorative-color);
+  border-radius: 50%;
+  box-shadow: 0px 0px 4px 2px var(--decorative-color);
+}
+
+.header__theme-menu {
+  justify-self: end;
+}
+
+.header__theme-menu-list {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.header__theme-menu-button {
+  background-color: transparent;
+  border: 1px solid transparent;
+  text-transform: lowercase;
+  color: var(--button-color);
+  padding: 1px 13px;
+}
+
+.header__theme-menu-button:focus {
+  outline: none;
+}
+
+.header__theme-menu-button:focus-visible {
+  border-block-end: 1px solid var(--button-color);
+}
+
+.header__theme-menu-button:hover {
+  border: 1px solid var(--button-hover-color);
+}
+
+.header__theme-menu-button_active {
+  border: 1px solid var(--button-color);
+}
+
+.header__title {
+  justify-self: start;
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  font-weight: var(--bold-font-weight);
+  line-height: 83%;
+  color: var(--logo-color);
+  text-shadow: 4px 4px 0 var(--accent-color);
+}
+
+.header__description {
+  inline-size: 100%;
+  justify-self: end;
+  font-weight: var(--bold-font-weight);
+}
+
+.inversion-decoration {
+  background-color: var(--accent-color);
+  color: var(--main-color);
+}
+
+.content {
+  block-size: min-content;
+  display: grid;
+  gap: 50px;
+  background-color: var(--bg-color);
+  padding: 40px 10px;
+}
+
+.content-section {
+  block-size: min-content;
+  display: grid;
+  gap: 20px;
+}
+
+.content-section__title {
+  font-size: 18px;
+  font-weight: var(--bold-font-weight);
+  color: var(--title-color);
+}
+
+.content-section__subtitle {
+  font-size: 18px;
+  font-weight: var(--bold-font-weight);
+  color: var(--main-color);
+}
+
+.content-section__list {
+  block-size: min-content;
+  display: grid;
+  gap: 20px;
+}
+
+.card__title {
+  font-size: 18px;
+  font-weight: var(--bold-font-weight);
+  margin-block-end: 10px;
+  color: var(--main-color);
+}
+
+.not-bold {
+  font-weight: var(--regular-font-weight);
+}
+
+.card__description {
+  color: var(--text-color);
+}
+
+.description-link {
+  text-decoration: none;
+  text-shadow: 2px 2px 0 var(--accent-color);
+}
+
+.description-link:focus {
+  outline: none;
+}
+
+.description-link:focus-visible {
+  outline: 1px solid var(--text-color);
+}
+
+.description-link:hover {
+  border-block-end: 2px solid var(--text-color);
+}
+
+.pictures {
+  gap: 10px;
+}
+
+.pictures .content-section__title {
+  color: var(--main-color);
+}
+
+.pictures-collection {
+  display: grid;
+  gap: 10px;
+}
+
+.pictures-collection__item {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+}
+
+.footer {
+  position: relative;
+  block-size: 100vh;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bg-color);
+}
+
+.footer__title {
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  font-weight: var(--bold-font-weight);
+  line-height: 83%;
+  color: var(--logo-color);
+  text-shadow: 2px 2px 0 var(--accent-color);
+}
+
+@media (width >= 768px) {
+  .header {
+    padding: 20px 20px 20px 0;
+  }
+
+  .decorated-zone::before {
+    top: 20px;
+    right: 20px;
+  }
+
+  .decorated-zone::after {
+    bottom: 20px;
+    left: 20px;
+  }
+
+  .header__decorative-element {
+    top: 20px;
+    right: 48px;
+  }
+
+  .header__title {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
+
+  .header__description {
+    inline-size: 50%;
+  }
+
+  .content {
+    gap: 80px;
+    padding: 60px 20px;
+  }
+
+  .why {
+    grid-template-columns: 1fr 2fr;
+  }
+
+  .what {
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: min-content 1fr;
+  }
+
+  .what .content-section__title {
+    grid-column: 1;
+  }
+
+  .what .content-section__list {
+    grid-column: 1 / 3;
+    grid-row: 2;
+  }
+
+  .how {
+    grid-template-columns: 1fr 2fr;
+  }
+
+  .how .content-section__title {
+    grid-column: 1;
+    grid-row: 1 / 3;
+  }
+
+  .pictures {
+    gap: 20px;
+  }
+
+  .pictures-collection {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, min-content);
+    gap: 20px;
+  }
+
+  .pictures-collection__item:nth-child(1) {
+    grid-column: 1 / 3;
+    grid-row: 1;
+  }
+
+  .pictures-collection__item:nth-child(2) {
+    grid-column: 3 / 4;
+    grid-row: 1 / 3;
+  }
+
+  .pictures-collection__item:nth-child(3) {
+    grid-column: 1;
+    grid-row: 2 / 4;
+  }
+
+  .pictures-collection__item:nth-child(4) {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .pictures-collection__item:nth-child(5) {
+    grid-column: 2 / 4;
+    grid-row: 3;
+  }
+
+  .footer__title {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
+}
+
+@media (width >= 1024px) {
+  .header__theme-menu {
+    justify-self: center;
+    align-self: start;
+  }
+
+  .header__theme-menu-list {
+    grid-template-rows: auto;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .what .content-section__list {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
