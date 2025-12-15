@@ -1,5 +1,5 @@
 :root {
-  --text-font: 'IBM Plex mono', 'serif';
+  --text-font: 'IBM Plex mono', 'monospace';
   --text-font-size: 18px;
   --regular-font-weight: 400;
   --bold-font-weight: 700;
